@@ -67,4 +67,16 @@
   git remote add origin .....(取别名就叫origin)
   
   git push origin master(带上分支名)
+
+9，把远程库下载到本地
+    git clone
+(1)完整的把远程库下载到本地
+(2)创建origin远程地址别名
+(3)初始化本地库
+
+10，拉取
+  pull = fetch+merge
+  git fetch[远程库地址别名][远程分支名]
+  git merge[]
+
        
