@@ -1,0 +1,70 @@
+1，本地库初始化
+ git init  创建一个 .git目录（存放的是本地库相关的子目录和文件，不要删除和修改）
+
+2，设置签名(区分开发人员的身份)
+  (1)项目级别
+   
+  (2)系统用户级别
+   git config --global user.name tom_pro
+   git config --global user.email goodMorning_pro@atguigu.com
+
+  (3)二者都没有不允许 
+     查看签名的地方(项目级别的)
+     cat .git/config
+     查看签名的地方（系统级别的）
+     cat ~/.gitconfig
+3,常用命令
+  (1) git status（查看各种状态）
+  (2) git add(添加到暂存区,git开始追踪)
+  (3) git rm --cached <file>(从暂存区恢复)
+  (4) git commit(放到本地库，添加信息)
+      git commit -m "second commit" good.txt
+  (5) 如果已经提交过用git add 或 git commit -a 直接
+ 
+
+4,实现版本的前进和后退
+  (1)git log 
+     git log --pretty=oneline
+     git log --oneline
+     git reflog HEAD@{移动到当前版本需要的步数}
+  (2)基于索引值操作（推荐）
+     git reset --hard 索引值   
+     soft仅仅在本地库移动head指针
+     mixed在本地库移动head指针，重置暂存区
+     hard在本地库移动head指针，重置暂存区，重置工作区
+
+
+5，删除文件后怎么找回
+   (1) 
+
+
+
+6, 比较文件差异
+   git diff [filename]
+  将工作区的文件和暂存区进行比较
+   git diff [本地库中历史版本][文件名] 
+  将工作区的文件和本地库历史记录比较  
+
+7，分支管理
+   查看分支
+   git branch -v
+   创建分支
+   git branch lalala
+   切换分支
+   git checkout  
+   合并分支
+   第一步：切换到接受修改的分支上（被合并）
+   git merge 另一个分支的名字（有新内容）
+   解决冲突
+   第一步：编辑文件，删除特殊符号
+   第二步：把文件编辑到满意的程度，保存退出
+   第三步：git add[文件名]
+   第四部： git commit -m"日志信息"
+      注意此时commit一定不能带具体的文件名
+
+8，与远程库的交互
+  git remote -v
+  git remote add origin .....(取别名就叫origin)
+  
+  git push origin master(带上分支名)
+       
